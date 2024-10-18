@@ -49,6 +49,7 @@ const Login = () => {
         const data = await response.json();
         loginUser(data.activeUser);
         toast.success('Login successful!');
+        
       } else {
         const errorData = await response.json();
         toast.success(errorData.message || 'An error occurred during Login');
