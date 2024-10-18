@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import {Toaster} from "react-hot-toast";
+import { UserContext } from "./context/userContext";
+import { useContext } from "react";
 
 function App() {
+const {user} = useContext(UserContext);
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={!user?<Login />:<Home/>} />
+        <Route path="/signup" element={!user?<Signup />:<Home/>} />
+      </Routes>
+
+      <Toaster/>
     </div>
   );
 }
