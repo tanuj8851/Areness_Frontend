@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+#Backend DeployUrl :- areness-backend-1.onrender.com
+#Backend RepoURl:- https://github.com/tanuj8851/Areness_Backend
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
