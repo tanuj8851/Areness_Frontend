@@ -1,26 +1,35 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
-import {Toaster} from "react-hot-toast";
-import { UserContext } from "./context/userContext";
+import { Toaster } from "react-hot-toast";
+import { Navigate } from 'react-router-dom';
 import { useContext } from "react";
+import { UserContext } from "./context/userContext";
+
+
 
 function App() {
-const {user} = useContext(UserContext);
+
+  const { user } = useContext(UserContext);
+
+ 
+
 
   return (
-
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={!user?<Login />:<Home/>} />
-        <Route path="/signup" element={!user?<Signup />:<Home/>} />
+      <Route
+          exact
+          path="/"
+          element={user ? <Home /> : <Navigate to="/login" />}
+        />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
 
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }

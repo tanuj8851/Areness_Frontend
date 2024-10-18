@@ -92,7 +92,7 @@ const Login = () => {
             </div>
           </div>
           <div className="mt-4">
-            <p className="text-gray-600 text-sm">Don't have an account? <Link to={"/login"} className="text-blue-600">Create One</Link></p>
+            <p className="text-gray-600 text-sm">Don't have an account? <Link to={"/signup"} className="text-blue-600">Create One</Link></p>
           </div>
         </div>
         <div className="w-1/2 flex items-center justify-center">
